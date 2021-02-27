@@ -2,7 +2,7 @@ name: build
 
 on:
   push:
-    branches: [ master ]
+    branches: [ tmp ]
   pull_request:
     branches: [ master ]
   release:
@@ -31,11 +31,15 @@ jobs:
 
       - name: Install dependencies
         run: |
+          python -m pip --version
+          python -m pip show setuptools wheel pip
           python -m pip install -U pytest pytest-cov coveralls>=3.0.0 parameterized
 
       - name: Install
+#        run: |
+#          python setup.py install
         run: |
-          python setup.py install
+          python -m pip install .
 
       - name: Test
         run: |
