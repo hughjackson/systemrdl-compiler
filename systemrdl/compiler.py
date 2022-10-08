@@ -270,7 +270,7 @@ class RDLCompiler:
         return FileInfo(input_stream.strdata, included_files)
 
 
-    def compile_file(self, path: str, incl_search_paths: Optional[List[str]]=None, prop_defaults: Optional[Tuple[str, any]]=None) -> FileInfo:
+    def compile_file(self, path: str, incl_search_paths: Optional[List[str]]=None, prop_defaults: Optional[Tuple[str, Any]]=None) -> FileInfo:
         """
         Parse & compile a single file and append it to RDLCompiler's root
         namespace.
@@ -321,7 +321,7 @@ class RDLCompiler:
                 else:
                     try:
                         val = int(val, 0)
-                    except e:
+                    except:
                         # assume it is a string at this point
                         pass
                 # Use None ref to allow failing code to be pointed to by error message
